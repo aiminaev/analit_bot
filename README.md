@@ -25,7 +25,6 @@
 
 ```
 docker-compose up -d --build
-python bot.py
 ```
 
 4. Запустить бота в Telegram командой /start
