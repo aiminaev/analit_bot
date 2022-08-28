@@ -1,0 +1,21 @@
+version: '3.7'
+
+services:
+  bot:
+    build:
+      context: .
+    command: sh -c ./entrypoint.sh
+    volumes:
+      - ./:/usr/src/app/
+    depends_on:
+      - bot_db
+  bot_db:
+    image: postgres:14.0-alpine
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=552281
+      - POSTGRES_DB=bot_db
+volumes:
+  postgres_data:
